@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>My Library</h1>
+    </header>
+    <main class="main">
+      <div class="new-book-container">
+        <div class="new-book-btn">+ Add book</div>
+        <div class="modal-container">
+          <div class="modal">
+            <div class="modal-header">Add a new book</div>
+            <form>
+              <input type="text" id="title" placeholder="Title" />
+              <input type="text" id="author" placeholder="Author" />
+              <input type="number" id="pages" placeholder="Pages" />
+              <div class="is-read">
+                <label for="is-read">Read?</label>
+                <input type="checkbox" id="read" />
+              </div>
+              <button type="button">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <img src="github.png" class="github-logo" alt="github-logo" />
+      <a href="https://www.github.com" target="_blank" class="github-link"
+        >GitHub</a
+      >
+    </footer>
+  </body>
+</html>
