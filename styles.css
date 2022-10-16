@@ -2,8 +2,12 @@
 
 :root {
   --black: black;
-  --white: snow;
-  --gray: #b9b9b9;
+  --white: #edf5e1;
+  --main: #aaa0a0;
+  --green: #5cdb95;
+  --red: #fc4445;
+  --link-hover: #3d4d03;
+  --lightgray: lightgray;
 }
 
 *,
@@ -12,7 +16,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -28,32 +32,45 @@ body {
 
 .main {
   flex: 1;
-  background-color: var(--gray);
+  background-color: var(--main);
 }
 
-.new-book-container {
+.add-book-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.new-book-btn {
+.add-book-btn {
+  border: 0;
   font-size: 2em;
   font-weight: 600;
   margin: 24px;
   padding: 16px;
   border-radius: 10px;
+  background-color: var(--main);
 }
 
-.new-book-btn:hover {
+.add-book-btn:hover,
+.card-read:hover,
+.card-remove:hover,
+.modal .submit:hover {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.1);
+  filter: brightness(80%);
+}
+
+.add-book-btn:active,
+.card-read:active,
+.card-remove:active,
+.modal .submit:active {
+  transform: translateY(4px);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   padding: 8px 32px;
   margin: 0 64px 64px 64px;
   gap: 32px;
@@ -67,13 +84,17 @@ body {
 
   font-size: 1.3em;
   background-color: var(--white);
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   margin: 4px;
   padding: 8px;
 }
 
-.card > * {
+.card .card-title,
+.card .card-author,
+.card .card-pages,
+.card .card-read,
+.card .card-remove {
   margin: 8px;
 }
 
@@ -83,26 +104,19 @@ body {
   border: 0;
   border-radius: 5px;
   padding: 4px 16px;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .card-remove {
-  background-color: var(--gray);
-}
-
-.card-read:hover,
-.card-remove:hover {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  opacity: 0.8;
+  background-color: var(--lightgray);
 }
 
 .read {
-  background-color: rgb(0, 165, 102);
+  background-color: var(--green);
 }
 
 .unread {
-  background-color: rgb(247, 73, 20);
+  background-color: var(--red);
 }
 
 .footer {
@@ -126,7 +140,7 @@ a.github-link {
 }
 
 a:hover.github-link {
-  color: red;
+  color: var(--link-hover);
   transition: all 0.2s ease-in-out;
 }
 
@@ -134,36 +148,77 @@ a:hover.github-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  pointer-events: none;
+  height: 100vh;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .modal {
-  background-color: var(--white);
-  padding: 30px 50px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 300px;
-  height: 500px;
-  max-width: 100%;
+  padding: 16px 16px;
+  border-radius: 5px;
+  background-color: var(--main);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .modal-container.show {
-  pointer-events: auto;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .modal-header {
   font-weight: 600;
   font-size: 1.5em;
+  margin-bottom: 12px;
 }
 
-.modal #title {
+.modal #title,
+.modal #author,
+.modal #pages,
+.modal .submit {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 8px;
+  margin: 12px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: var(--white);
+}
+
+.modal .is-read {
+  padding: 8px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.modal #read {
+  margin-left: 8px;
+}
+
+.modal .submit {
+  background-color: var(--green);
+}
+
+.error {
+  visibility: hidden;
+}
+
+.error.show {
+  visibility: visible;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.card hr {
+  width: 75%;
+  color: var(--main);
 }
