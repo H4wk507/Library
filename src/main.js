@@ -48,7 +48,6 @@
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
     const read = document.getElementById("read").checked;
-    // TODO: change this
     const errorDiv = document.querySelector(".error");
 
     if (
@@ -57,13 +56,14 @@
       pages.length === 0 ||
       parseInt(pages) <= 0
     ) {
-      // Incorrect form values.
-      return;
+      errorDiv.innerText = "Incorrect form values.";
+      errorDiv.classList.add("show");
     } else if (myLibrary.alreadyExist(title, author)) {
+      errorDiv.innerText = "This book already exists in your library!";
       errorDiv.classList.add("show");
     } else {
       myLibrary.addBook(title, author, pages, read);
-      const book = myLibrary.books[myLibrary.size() - 1];
+      const book = myLibrary.books.at(-1);
       cardsContainer.appendChild(prepareCard(book, myLibrary.size() - 1));
       modalContainer.classList.remove("show");
       errorDiv.classList.remove("show");

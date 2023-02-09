@@ -54,7 +54,8 @@ body {
 .add-book-btn:hover,
 .card-read:hover,
 .card-remove:hover,
-.modal .submit:hover {
+.modal .submit:hover,
+.modal #read:hover {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   filter: brightness(80%);
@@ -63,7 +64,8 @@ body {
 .add-book-btn:active,
 .card-read:active,
 .card-remove:active,
-.modal .submit:active {
+.modal .submit:active,
+.modal #read:active {
   transform: translateY(4px);
   box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
