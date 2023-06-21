@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.3rem;
+  background-color: var(--white);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin: 4px;
+  padding: 8px;
+
+  * {
+    margin: 4px;
+  }
+
+  hr {
+    width: 75%;
+    color: var(--main);
+  }
+
+  .card-read,
+  .card-remove {
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    padding: 4px 16px;
+    font-size: 1.4rem;
+
+    &:hover {
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      filter: brightness(80%);
+    }
+
+    &:active {
+      transform: translateY(4px);
+      box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .card-remove {
+    background-color: var(--lightgray);
+  }
+
+  .read {
+    background-color: var(--green);
+  }
+
+  .unread {
+    background-color: var(--red);
+  }
+}

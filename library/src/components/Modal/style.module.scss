@@ -1,0 +1,94 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.modal-container {
+  border: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--main);
+  z-index: 100;
+}
+
+.modal {
+  width: 300px;
+  padding: 16px 32px;
+  background-color: var(--main);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+
+  .modal-header {
+    font-weight: 600;
+    opacity: 0.8;
+    font-size: 1.5rem;
+  }
+
+  .title,
+  .author,
+  .pages {
+    outline: 0;
+  }
+
+  .title,
+  .author,
+  .pages,
+  .submit,
+  .close {
+    border: 0;
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: var(--white);
+  }
+
+  .read:active,
+  .submit:active,
+  .read:active {
+    transform: translateY(4px);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .submit:hover,
+  .read:hover,
+  .close:hover {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    filter: brightness(80%);
+  }
+
+  .close {
+    background: var(--red);
+    margin: 0;
+  }
+
+  .submit {
+    background-color: var(--green);
+  }
+
+  .is-read {
+    padding: 8px;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .read {
+    margin-left: 10px;
+  }
+
+  .form-error {
+    color: var(--error);
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
+}

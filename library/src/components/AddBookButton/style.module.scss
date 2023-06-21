@@ -1,0 +1,20 @@
+.add-book-btn {
+  border: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 24px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--main);
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    filter: brightness(80%);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+  }
+}

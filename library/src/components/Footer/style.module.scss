@@ -1,0 +1,24 @@
+img.github-logo {
+  height: 30px;
+  width: 30px;
+  margin-right: 6px;
+}
+
+a.github-link {
+  color: var(--black);
+  text-decoration: none;
+}
+
+a:hover.github-link {
+  color: var(--link-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  padding: 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
