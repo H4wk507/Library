@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+:root {
+  --black: black;
+  --white: #edf5e1;
+  --main: #aaa0a0;
+  --green: #5cdb95;
+  --red: #fc4445;
+  --link-hover: #3d4d03;
+  --lightgray: lightgray;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 32px;
+  background-color: var(--white);
+}
+
+.main {
+  flex: 1;
+  background-color: var(--main);
+}
+
+.add-book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-book-btn {
+  border: 0;
+  font-size: 2em;
+  font-weight: 600;
+  margin: 24px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--main);
+}
+
+.add-book-btn:hover,
+.card-read:hover,
+.card-remove:hover,
+.modal .submit:hover,
+.modal #read:hover {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  filter: brightness(80%);
+}
+
+.add-book-btn:active,
+.card-read:active,
+.card-remove:active,
+.modal .submit:active,
+.modal #read:active {
+  transform: translateY(4px);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 8px 32px;
+  margin: 0 64px 64px 64px;
+  gap: 32px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.3em;
+  background-color: var(--white);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin: 4px;
+  padding: 8px;
+}
+
+.card .card-title,
+.card .card-author,
+.card .card-pages,
+.card .card-read,
+.card .card-remove {
+  margin: 8px;
+}
+
+.card-read,
+.card-remove {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 4px 16px;
+  font-size: 1.1em;
+}
+
+.card-remove {
+  background-color: var(--lightgray);
+}
+
+.read {
+  background-color: var(--green);
+}
+
+.unread {
+  background-color: var(--red);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  padding: 12px;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+img.github-logo {
+  height: 30px;
+  width: 30px;
+  margin-right: 6px;
+}
+
+a.github-link {
+  color: var(--black);
+  text-decoration: none;
+}
+
+a:hover.github-link {
+  color: var(--link-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  width: 300px;
+  padding: 16px 16px;
+  border-radius: 5px;
+  background-color: var(--main);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-header {
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-bottom: 12px;
+}
+
+.modal #title,
+.modal #author,
+.modal #pages,
+.modal .submit {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 8px;
+  margin: 12px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: var(--white);
+}
+
+.modal .is-read {
+  padding: 8px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.modal #read {
+  margin-left: 8px;
+}
+
+.modal .submit {
+  background-color: var(--green);
+}
+
+.error {
+  visibility: hidden;
+}
+
+.error.show {
+  visibility: visible;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.card hr {
+  width: 75%;
+  color: var(--main);
+}
+
+.form-error {
+  color: rgb(165, 61, 61);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
